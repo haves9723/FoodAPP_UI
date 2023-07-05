@@ -10,7 +10,7 @@ import hotels from '../data/hotels';
 
 const Home = () => {
 
-    const data = hotels
+    const data = hotels;
 
     return (
         <ScrollView style={{ marginTop: 40 }}>
