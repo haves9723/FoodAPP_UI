@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import FoodItem from '../components/FoodItem';
 
 
 const Menu = () => {
@@ -11,10 +12,8 @@ const Menu = () => {
     const route = useRoute();
     const navigation = useNavigation();
 
-    console.log(route.params);
-
     return (
-        <SafeAreaView>
+        <ScrollView style={{ marginTop: 50 }}>
             <View
                 style={{
                     height: 300,
@@ -112,18 +111,39 @@ const Menu = () => {
                     </View>
                     <Text style={{ borderColor: 'gray', borderWidth: 0.6, height: 1, marginTop: 12 }}></Text>
                     <View
-                    style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        marginTop: 5,
-                    }}>
-                        <MaterialIcons style={{marginRight:10}} name="directions-bike" size={24} color="orange" />
-                        <Text style={{color: 'gray', marginRight:10}}>0-3 Kms |</Text>
-                        <Text style={{fontWeight:'bold'}}>35 Delivery Fee will apply</Text>
+                        style={{
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            marginTop: 5,
+                        }}>
+                        <MaterialIcons style={{ marginRight: 10 }} name="directions-bike" size={24} color="orange" />
+                        <Text style={{ color: 'gray', marginRight: 10 }}>0-3 Kms |</Text>
+                        <Text style={{ fontWeight: 'bold' }}>35 Delivery Fee will apply</Text>
                     </View>
                 </View>
             </View>
-        </SafeAreaView>
+            <Text
+                style={{
+                    textAlign: 'center',
+                    fontSize: 17,
+                    fontWeight: '500',
+                    marginTop: 10
+                }}
+            >
+                MENU
+            </Text>
+            <Text
+                style={{
+                    borderColor: 'gray',
+                    borderWidth: 0.6,
+                    height: 1,
+                    marginTop: 12,
+                }}>   
+            </Text>
+            {route.params.menu.map((item, index) => (
+                <FoodItem item={item} index={index}></FoodItem>
+            ))}
+        </ScrollView>
     )
 }
 

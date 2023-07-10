@@ -13,7 +13,7 @@ const Home = () => {
     const data = hotels;
 
     return (
-        <ScrollView style={{ marginTop: 40 }}>
+        <ScrollView style={{ marginTop: 50 }}>
             <View style={styles.inputSearch}>
                 <TextInput style={styles.textInput} placeholder='Search restaurant' />
                 <AntDesign name="search1" size={24} color="#E52B50" />
