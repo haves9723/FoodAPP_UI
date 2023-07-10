@@ -6,13 +6,13 @@ import MenuComponent from './MenuComponent';
 const FoodItem = ({ item }) => {
 
     const data = [item];
-    const [selected, setSelected] = useState([]);
+    const [selected, setSelected] = useState(["Recommended"]);
 
-    const handleItemSelected = (itemName) => {
-        const itemSelected = selected.find((name) => name === itemName);
+    const handleItemSelected = (item) => {
+        const itemSelected = selected.find((name) => name === item);
         if(itemSelected) {
             setSelected(selected.filter((sel) => sel !== item));
-        } else {
+        } else {    
             setSelected([...selected,item]);
         }
     }
@@ -35,7 +35,7 @@ const FoodItem = ({ item }) => {
                                 fontSize: 20,
                                 fontWeight: 'bold'
                             }}>
-                            {item.name}
+                            {item.name} ({item.items.length})
                         </Text>
                         <AntDesign name="down" size={24} color="black" />
                     </Pressable>
